@@ -72,11 +72,16 @@
     .f-right {
       float: right;
     }
+
+    #container-profils .row .col-md-4 .card{
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
+<div class="container" id="container-profils">
   <div class="row">
     <div class="col-md-4 col-xl-3">
       <div class="card bg-c-blue order-card">
@@ -128,6 +133,14 @@
     </div>
   </div>
 </div>
+<script>
+  let cards = document.querySelectorAll('#container-profils .row .col-md-4 .card')
+  for(let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', (event) => {
+      window.location.href = event.currentTarget.querySelector(".card-block a").href
+    })
+  }
+</script>
 <!--
   developed By : sumit kumar
   facebook : fb.com/sumit.luv
