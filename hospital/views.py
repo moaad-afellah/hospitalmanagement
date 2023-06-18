@@ -807,12 +807,40 @@ def patient_discharge_view(request):
         }
     return render(request,'hospital/patient_discharge.html',context=patientDict)
 
-
+#---------------------------------------------------------------------------------
 #------------------------ PATIENT RELATED VIEWS END ------------------------------
 #---------------------------------------------------------------------------------
 
 
 
+#---------------------------------------------------------------------------------
+#------------------------ RECLAMATION RELATED VIEWS ------------------------------
+#---------------------------------------------------------------------------------
+
+def user_reclamation_view(request):
+    return render(request,'hospital/user_reclamation.html')
+
+def user_report_reclamation_view(request):
+    reclamation=forms.ReclamationForm()
+    mydict={'reclamation':reclamation}
+    if request.method=='POST':
+        reclamation=forms.ReclamationForm(request.POST)
+        mydict={'reclamation':reclamation}
+        print(reclamation.errors)
+        if reclamation.is_valid():
+            user_reclamation=reclamation.save(commit=False)
+            user_reclamation.save()
+        return HttpResponseRedirect('user-other-reclamation')
+    return render(request,'hospital/user_report_reclamation.html',context=mydict)
+
+def user_other_reclamation_view(request):
+    information_reclamation = models.Reclamation.objects.all().order_by('-date')
+    return render(request,'hospital/user_other_reclamation.html',{'information_reclamation':information_reclamation})
+
+
+#---------------------------------------------------------------------------------
+#------------------------ RECLAMATION RELATED VIEWS END --------------------------
+#---------------------------------------------------------------------------------
 
 
 

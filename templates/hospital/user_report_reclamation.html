@@ -1,0 +1,38 @@
+{% extends 'hospital/admin_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="col-md-6 container-forms">
+        <div class="form-group">
+          {% render_field reclamation.name class="form-control" placeholder="Name" %}
+        </div>
+        <div class="form-group">
+          {% render_field reclamation.username class="form-control" placeholder="Username" %}
+        </div>
+        <div class="form-group">
+          {% render_field reclamation.reclamation class="form-control" placeholder="Reclamation" %}
+        </div>
+        <button type="submit" class="btnSubmit">Register</button>
+    </div>
+    <div>
+        {% if reclamation.errors %}
+        {% for field in reclamation %}
+            {% for error in field.errors %} 
+               <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+               </div>
+            {% endfor %}
+        {% endfor %}
+     {% endif %}
+    </div>
+</form>
+
+
+<style>
+    .container-forms{
+        padding-top: 50px;
+    }
+</style>
+{% endblock content %}

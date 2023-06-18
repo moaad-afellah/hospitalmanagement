@@ -39,6 +39,7 @@ facebook : fb.com/sumit.luv
           <th>Mobile</th>
           <th>Address</th>
           <th>Department</th>
+          <th>Gender</th>
           <th>Update</th>
           <th>Delete</th>
         </tr>
@@ -51,6 +52,7 @@ facebook : fb.com/sumit.luv
         <td>{{d.mobile}}</td>
         <td>{{d.address}}</td>
         <td>{{d.department}}</td>
+        <td>{{d.gender}}</td>
         <td><a class="btn btn-primary btn-xs" href="{% url 'update-doctor' d.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
         <td><a class="btn btn-danger btn-xs" href="{% url 'delete-doctor-from-hospital' d.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
       </tr>

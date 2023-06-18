@@ -1,0 +1,71 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<!--
+written By : sumit kumar
+facebook : fb.com/sumit.luv
+-->
+{% for reclamation in information_reclamation %}
+  <div class="list-reclamation">  
+    <div class="title">Reclamation</div>
+    <div class="date">Date Time : {{reclamation.date}} </div>
+    <h3>Name of user: {{reclamation.name}}</h3>
+    <h4>Reclamation : {{reclamation.reclamation}}</h4>
+  </div>
+{% endfor %}
+
+<style media="screen">
+  .list-reclamation{
+    width: 70vw;
+    height: 30vh;
+    border: 3px solid #337AB7;
+    border-radius: 5px;
+    margin-bottom: 3vh;
+    margin-left: 5vw;
+  }
+
+  .list-reclamation .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    background-color:#337AB7;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .list-reclamation .date{
+    border-bottom: solid 2px rgb(187, 170, 170);
+    font-size: 22px;
+  }
+  
+  .list-reclamation h4{
+    font-size: 20px;
+    color: red;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }
+
+  h6 {
+    text-align: center;
+  }
+
+  .row {
+    margin: 100px;
+  }
+</style>
+
+
+
+<!--
+developed By : sumit kumar
+facebook : fb.com/sumit.luv
+youtube : youtube.com/lazycoders
+-->
+
+{% endblock content %}

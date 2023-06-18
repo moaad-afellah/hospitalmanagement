@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from . import models
-
+from django.forms import Textarea
 
 
 #for admin signup
@@ -25,7 +25,17 @@ class DoctorUserForm(forms.ModelForm):
 class DoctorForm(forms.ModelForm):
     class Meta:
         model=models.Doctor
-        fields=['address','mobile','department','status','profile_pic']
+        fields=['gender','address','mobile','department','status','profile_pic']
+
+
+class ReclamationForm(forms.ModelForm):
+    class Meta:
+        model=models.Reclamation
+        fields="__all__"
+        widgets = {
+            'content': Textarea(attrs={'cols': 80, 'rows': 20}),
+        }
+
 
 
 

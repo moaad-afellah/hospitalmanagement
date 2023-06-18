@@ -109,6 +109,16 @@ urlpatterns +=[
 
 ]
 
+#---------FOR RECLAMATION-------------------------------------
+
+urlpatterns +=[
+path('user-reclamation', views.user_reclamation_view, name = 'user-reclamation'),
+path('user-report-reclamation', views.user_report_reclamation_view, name = 'user-report-reclamation'),
+path('user-other-reclamation', views.user_other_reclamation_view, name = 'user-other-reclamation'),
+]
+
+
+
 #Developed By : sumit kumar
 #facebook : fb.com/sumit.luv
 #Youtube :youtube.com/lazycoders

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from datetime import datetime    
 
 
 departments=[('Cardiologist','Cardiologist'),
@@ -17,6 +17,7 @@ class Doctor(models.Model):
     mobile = models.CharField(max_length=20,null=True)
     department= models.CharField(max_length=50,choices=departments,default='Cardiologist')
     status=models.BooleanField(default=False)
+    gender=models.CharField(max_length=10,null=True)
     @property
     def get_name(self):
         return self.user.first_name+" "+self.user.last_name
@@ -26,6 +27,12 @@ class Doctor(models.Model):
     def __str__(self):
         return "{} ({})".format(self.user.first_name,self.department)
 
+
+class Reclamation(models.Model):
+    name = models.CharField(max_length=20, null = True)
+    username = models.CharField(max_length=20, null = True)
+    reclamation = models.TextField()
+    date = models.DateTimeField(default=datetime.now(), blank=True, null=True)
 
 
 class Patient(models.Model):
